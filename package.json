@@ -1,0 +1,15 @@
+{
+  "name": "learnsocket",
+  "version": "1.0.0",
+  "description": "",
+  "main": "tcp.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start":"nodemon socketchat.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "nodemon": "^2.0.20"
+  }
+}
