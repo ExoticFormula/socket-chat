@@ -16,10 +16,12 @@ server.on("connection", (socket) => {
         `${username.toString().trim()} has joined, Welcome!\n`
       );
     } else {
+      let date = new Date();
+    
       console.log("broadcasting data: " + data);
       broadCastMessage(
         socket,
-        `${socket.username.toString().trim()} :- ${data}`
+        `${date.toLocaleTimeString([], { hour: '2-digit', minute: "2-digit" })} ${socket.username.toString().trim()} :- ${data}`
       );
     }
   });
@@ -33,10 +35,10 @@ server.on("connection", (socket) => {
   });
 });
 
-const broadCastMessage = (sourcesocket, data) => {
+const broadCastMessage = (sourcesocket, message) => {
   Object.entries(sockets).forEach(([id, sock]) => {
     if (Number(id) !== sourcesocket.id) {
-      sock.write(data);
+      sock.write(message);
     }
   });
 };
